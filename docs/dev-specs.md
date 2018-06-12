@@ -22,6 +22,28 @@ pandolajs 旨在打造一套用于 web 开发的套件，包括但不限于各�
 
 建议所有项目都接入 `stylelint`, 并遵守项目中 `styleing rules`, 推荐统一接入 [styleling-config-pandora](https://github.com/pandolajs/stylelint-config-pandora).
 
+## 代码注释规范
+
+每个文件头部必须包含如下注释信息：
+
+- fileOverview 文件内容简要说明
+
+- author 作者，提供作者名与联系邮箱
+
+- version 当前文件的版本变更，方便源码阅读者查看文件变更历史，包含 版本号，日期，作者，版本变更说明
+
+模板如下：
+
+```
+/**
+ * @fileOverview  xxxx
+ * @author sizhao | sizhao@pandolajs.com
+ * @author cherrylong | cherrylong@pandolajs.com
+ * @version 1.0.0 | 2018-06-12 | sizhao         // 初始版本，提供 xxx 功能
+ * @version 1.1.0 | 2010-06-12 | cherrylong     // 新增 yyy 功能
+ */
+```
+
 ## npm 发包规范
 
 - 首先要申请加入 npmjs organization: `pandolajs` 

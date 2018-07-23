@@ -1,0 +1,1 @@
+{"data":{"markdownRemark":{"html":"<h3>安装 <code>pandora-cli</code></h3>\n<pre><code>  npm run -g pandora-cli\n</code></pre>","frontmatter":{"title":"使用 pandolajs 开发小程序"}}},"pageContext":{"slug":"/develop-miniprogram-with-pandolajs/"}}

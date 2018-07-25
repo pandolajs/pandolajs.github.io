@@ -1,10 +1,40 @@
+/**
+ * @fileOverview 页面布局
+ * @author sizhao | 870301137@qq.com
+ * @version 1.0.0 | 2018-07-26 | sizhao  // 初始版本
+*/
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from "gatsby"
 
-import Header from './header'
-import './layout.css'
+import Header from '../header'
+import Navigator from '../navigator'
+import './index.less'
+
+const navigates = [
+  {
+    name: 'Docs',
+    path: '/docs'
+  },
+  {
+    name: 'Boilerplates',
+    path: '/boilerplates'
+  },
+  {
+    name: 'Components',
+    path: '/components'
+  },
+  {
+    name: 'Tech',
+    path: '/tech'
+  },
+  {
+    name: 'About',
+    path: '/about'
+  }
+]
 
 const Layout = ({ children, data }) => (
   <StaticQuery
@@ -26,6 +56,7 @@ const Layout = ({ children, data }) => (
             { name: 'keywords', content: 'sample, something' },
           ]}
         />
+        <Navigator navigates={navigates} />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{

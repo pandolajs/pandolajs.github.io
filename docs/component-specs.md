@@ -73,12 +73,64 @@ date: "2018-07-27"
 
 每个组件，除了命名规范要统一之外，更重要的应该是具备统一分设计风格，本节使用 Dialog 为例，从结构设计，样式，交互三个方面进行设计规范说明。
 
+组件存在的目的之一就是提高代码的复用度，设计良好的组件才能最大限度的覆盖使用场景，也只有覆盖足够多的场景，才能将组件的复用度最大化。
+
+组件复用又可以从两个方面去思考，结构的复用，功能的复用。参考下图，以 Dialog 设计为例，一一分析。
+
 ![pa-dialog](resources/pa-dialog.jpg)
 
 ## 结构设计
 
-组件存在的目的之一就是提高代码的复用度，设计良好的组件才能最大限度的覆盖使用场景，也只有覆盖足够多的场景，才能将组件的复用度最大化。
+为了提高组件的通用性，在设计组件结构的时候，我们要遵守组件固有的功能，只提供组件应有的关键节点，所以通用组件应该是重功能而轻样式，当然组件的开发者可以提供一套默认的样式，但是默认的样式也应该尽量保持组件关键节点的简洁性，尽量不要增加额外的样式节点（非关键节点，只为满足某种样式需求而增加的节点），如果不可避免的需要样式节点，我们也要尽可能的不去影响关键节点的流动性，为使用者提供足够原生也符合使用者预期的扩展能力。
+
+如本节开头的 Dialog 组件，结构设计如下：
+
+```
+  <div class="pa-dialog">
+    <div class="pa-dialog-title">Title</div>
+    <div class="pa-dialog-content">Content</div>
+    <div class="pa-dialog-opration">
+      <a href="javascript:;" class="pa-dialog-cancel">Cancel</a>
+      <a href="javascript:;" class="pa-dialog-confirm">Confirm</a>
+    </div>
+  </div>
+```
 
 ## 样式设计
 
+在为组件的关键节点提供默认样式的时候，我们要尽量保持该节点元素的流动性，保证元素块的原生行为。如：在关键节点上使用绝对/固定定位，`position: absolute | flex;` 或者使用定宽定高，`width: 100px; height: 50px;` 等等 ~~ 如果考虑不周，会导致使用者提供自定义节点（slot）时出现不符合预期的表现。
+
+同时我们应该为使用者提供每个关键节点的调用句柄，方便用户自定义样式。
+
+如上上述 Dialog 组件，结构数据修改如下：
+
+```
+  <div role="pa-dialog" class="pa-dialog">
+    <div role="pa-dialog-title" class="pa-dialog-title">Title</div>
+    <div role="pa-dialog-content" class="pa-dialog-content">Content</div>
+    <div role="pa-dialog-opration" class="pa-dialog-opration">
+      <a role="pa-dialog-cancel" href="javascript:;" class="pa-dialog-cancel">Cancel</a>
+      <a role="pa-dialog-confirm" href="javascript:;" class="pa-dialog-confirm">Confirm</a>
+    </div>
+  </div>
+```
+
+> 这里为每个关键节点提供了 `role` 属性，作为样式自定义的句柄，不直接使用 class 是考虑到 `scope` 的支持.
+
+样式部分：
+
+我们要避免在组件默认样式中为 `pa-dialog-title` 和 `pa-dialog-content` 等提供 `height: xxxpx` 这样破坏元素流动性的代码（在遵守基本原则的前提下，根据实际情况灵活运用）。
+
 ## 交互设计
+
+每个组件有具备自己完成的生命周期，为了能尽可能多的满足业务场景，我们需要为组件的每个生命周期提供 hook method 或者对外广播事件，同时为了方便控制组件，应该提供复合语义的 api。
+
+如上 Dialog 的生命周期如下图：
+
+![dialog-lifecircle](./resources/dialog-lifecircle.jpg)
+
+所以 Dialog 组件应该具备如下 lifecircle hook methods
+
+`onShow`, `onConfirm`, `onCancel`, `onHide`
+
+同时也需要为 Dialog 实例提供 `this.close()` 和 `this.show()` 方法

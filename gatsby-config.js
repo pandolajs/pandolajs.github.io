@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2009-present pandolajs, All rights reserved.
+ * @fileoverview gatsby configuration
+ * @author sizhao | 870301137@qq.com
+ * @version 1.0 | 2018-07-01 | sizhao       // 初始版本
+ */
+
 module.exports = {
   siteMetadata: {
     title: 'Pandolajs!',

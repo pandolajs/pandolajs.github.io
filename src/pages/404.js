@@ -1,10 +1,16 @@
 import React from 'react'
+import { css } from 'react-emotion'
+
 import Layout from '../components/layout'
+import notFountImage from '../images/404.jpg'
 
 const NotFoundPage = () => (
   <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <div className={css`
+      height: calc(100vh - 210px);
+      background: url('${notFountImage}') no-repeat center;
+      background-color: #fff;
+    `}></div>
   </Layout>
 )
 

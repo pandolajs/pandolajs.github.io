@@ -7,11 +7,14 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'Pandolajs!',
+    title: 'Pandolajs',
+    keywords: 'reactjs,npm,nodejs,pandorajs,component,boilerplate',
+    description: 'Pandolajs is a ecosytem for frontend.'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-less',
+    'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -21,17 +24,30 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 590,
+              maxWidth: 600,
             },
           },
         ],
       },
     },
-  ],
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Pandolajs',
+        short_name: 'pandora',
+        start_url: '/',
+        background_color: '#1296db',
+        theme_color: '#1296db',
+        display: 'minimal-ui',
+        icon: 'src/images/pandolajs.png'
+      }
+    },
+    'gatsby-plugin-offline'
+  ]
 }

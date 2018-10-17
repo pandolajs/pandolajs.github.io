@@ -2,10 +2,9 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-import Footer from '../components/footer'
 
 const IndexPage = ({ data }) => (
-  <Layout>
+  <Layout banner={ true }>
     <h1>Hi people, Hello world.</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -19,7 +18,6 @@ const IndexPage = ({ data }) => (
         </div>)
       }) }
     </div>
-    <Footer />
   </Layout>
 )
 

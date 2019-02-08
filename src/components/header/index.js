@@ -6,7 +6,7 @@
 import React from 'react'
 import styles from './index.module.less'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faGem } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 const Header = ({ siteTitle }) => (
   <div className={styles.headerContainer} >
@@ -15,7 +15,7 @@ const Header = ({ siteTitle }) => (
       <p className={styles.subtitle}>Make a immersion development experience</p>
       <div className={styles.opBar}>
         <a href="https://github.com/pandolajs" className={`${styles.btn} ${styles.github}`}>
-          <Icon icon={faGem} /> GitHub
+          <Icon icon={faGithub} /> GitHub
         </a>
         <a href="/docs" className={styles.btn}>Get Start</a>
       </div>

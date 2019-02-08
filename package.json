@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "author": "sizhao<870301137@qq.com>",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
-    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
-    "@fortawesome/react-fontawesome": "0.1.0-11",
+    "@fortawesome/fontawesome-svg-core": "^1.2.14",
+    "@fortawesome/free-brands-svg-icons": "^5.7.1",
+    "@fortawesome/free-solid-svg-icons": "^5.7.1",
+    "@fortawesome/react-fontawesome": "0.1.4",
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
     "gatsby": "^2.0.25",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "gatsby-cli": "^2.4.3",
     "gh-pages": "^1.2.0",
+    "husky": "^1.2.0",
     "prettier": "^1.12.0"
   },
   "repository": {

@@ -1,14 +1,18 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { css } from 'react-emotion'
 
 import Layout from '../components/layout'
 
+const panelClass = css`
+  padding: '50px 0';
+`
+
 const IndexPage = ({ data }) => (
   <Layout banner={ true }>
-    <h1>Hi people, Hello world.</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <div className="panel">
+
+    </div>
     <div style={{
       marginBottom: '100px'
     }}>
